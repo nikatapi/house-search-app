@@ -10,7 +10,6 @@ class Search < ActiveRecord::Base
 		"#{address}, #{city}, #{country}"
 	end
 
-
 	def found_houses
 		@found_houses ||= find_houses
 	end

@@ -10,6 +10,11 @@ class SearchesController < ApplicationController
 
 	def show
 		@search = Search.find(params[:id])
+		@hash = Gmaps4rails.build_markers(@search.found_houses) do |house, marker|
+      		marker.lat house.latitude
+      		marker.lng house.longitude
+      		marker.infowindow house.price
+		end
 	end
 
 

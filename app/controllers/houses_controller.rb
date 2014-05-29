@@ -10,6 +10,12 @@ class HousesController < ApplicationController
   end
 
   def show
+    @house = House.find(params[:id])
+    @hash = Gmaps4rails.build_markers(@house) do |house, marker|
+      marker.lat house.latitude
+      marker.lng house.longitude
+      marker.infowindow house.price
+    end
   end
 
 	def create
