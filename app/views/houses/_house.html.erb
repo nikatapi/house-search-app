@@ -1,0 +1,20 @@
+<li class="list-group-item">
+	
+	<span class="country"> Country: <%= house.country %></span>,
+	<span class="city">City:<%= house.city %></span>,
+	<span class="address">Address:<%= house.address %></span>
+	<span class="description">Description:<%= house.description %></span>
+	
+
+	<span class="price">Price:<%= house.price %>€</span>
+	
+
+	
+
+	 <% if current_user?(house.user) %>
+    <%= link_to "delete", house, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: house.description %>
+  <% end %>
+  <br></br>
+</li>

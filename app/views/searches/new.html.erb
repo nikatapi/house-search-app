@@ -1,0 +1,32 @@
+<% provide(:title, 'Search for a house') %>
+<h1>Search</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@search) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+      
+      <%= f.label :country %>
+      <%= f.country_select :country , prompt: 'Please select a country'%>
+
+      <%= f.label :city %>
+      <%= f.text_field :city %>
+
+      <%= f.label :address %>
+      <%= f.text_field :address %>
+
+      <%= f.label :max_price %>
+      <%= f.text_field :max_price %>
+
+      <%= f.label :max_radius %>
+      <%= f.text_field :max_radius %>
+
+      <%= f.label :desired_price %>
+      <%= f.text_field :desired_price %>
+
+
+
+      <%= f.submit "Search!", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
