@@ -1,0 +1,11 @@
+<%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
+  <%= f.label :subject %>
+  <%= f.text_area :subject %>
+  
+  <%= f.label :body %>
+  <%= f.text_field :body, as: :text %>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn-primary' %>
+  </div>
+<% end %>

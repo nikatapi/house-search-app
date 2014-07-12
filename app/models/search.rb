@@ -1,6 +1,5 @@
 class Search < ActiveRecord::Base
 	validates :country, presence: true
-	validates :city, presence: true
 
 
 	geocoded_by :full_address
@@ -18,7 +17,7 @@ private
 
 	def find_houses
 		found_houses = House.where(country: country)
-		found_houses = found_houses.where("city like ?", "%#{city}")
+		found_houses = found_houses.where("city like ?", "%#{city}") if city.present?
 		found_houses = found_houses.where("price <= ?", max_price) if max_price.present?
 
 		#this is not so accurate using SQLite DB

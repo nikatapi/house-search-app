@@ -1,18 +1,46 @@
 SampleApp::Application.routes.draw do
+  
+  resources :reservations
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" , :registrations => "registrations"}
+  
+  
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :houses
+  resources :houses 
+  resources :house_images
   resources :searches
+  resources :reservations
+
+  resources :messages do
+    member do
+      post :new
+    end
+  end
+  resources :conversations do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+   collection do
+      get :trashbin
+      post :empty_trash
+   end
+  end
 
   root  'static_pages#home'
   match '/signup',  to: 'users#new',			      via: 'get'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
-  match '/signin',  to: 'sessions#new',         via: 'get'
-  match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/newhouse', to: 'houses#new',          via: 'get'
   match '/newsearch', to: 'searches#new',       via: 'get'
+  match '/newconversation', to: 'conversations#new',  via: 'get'
+
+  devise_scope :user do 
+    match '/sessions/user', to: 'devise/sessions#create', via: :post
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

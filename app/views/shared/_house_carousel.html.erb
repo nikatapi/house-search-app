@@ -1,0 +1,27 @@
+
+
+
+<div id="wrapper">
+	<div id="houseCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+		<!-- Carousel Indicators -->
+		<ol class="carousel-indicators">
+			<% @house.pictures.count.times do |count| %>
+				<li data-target="#myCarousel" data-slide-to=<%= count %> class="active"></li>
+			<% end %>
+		</ol>
+
+		<!-- Carousel Items -->
+		<div class="carousel-inner">
+		<% @house.pictures.each_with_index do |picture, index| %>
+			<div class="<% if index == 0%>active<% else %>item<% end %>">
+			<%= image_tag(picture.image_url) %>
+			</div>
+		<% end %>
+		</div>
+	<!--next and previous controls -->
+	<a class="carousel-control left" href="#houseCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#houseCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+</div>
+
+		

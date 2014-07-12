@@ -1,0 +1,26 @@
+ <div id="wrapper">
+      <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+      <!-- Carousel Indicators -->
+      <ol class="carousel-indicators">
+        <% house.pictures.each_with_index do |index| %>
+          <li data-target="#myCarousel" data-slide-to=<%= index %>  <% if index == 0 %>class="active"<% end %>></li>
+        <% end %>
+      </ol>
+
+      <!-- Carousel Items -->
+      <div class="carousel-inner">
+        <% house.pictures.each_with_index do |picture, index| %>
+          <div class="item <% if index == 0%>active<% end %>">
+          <%= image_tag(picture.image_url(:slider)) %>
+          </div>
+        <% end %>
+      </div>
+      <!--next and previous controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+  </div>

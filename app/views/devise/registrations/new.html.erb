@@ -1,0 +1,31 @@
+<h1>Sign up</h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:multipart => true} ) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, autofocus: true %>
+  <br />
+
+  <%= f.label :email %>
+  <%= f.email_field :email, autofocus: true %>
+  <br />
+
+  <%= f.label :password %>
+  <%= f.password_field :password, autocomplete: "off" %>
+  <br />
+
+  <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <br />
+
+  <%= f.label :avatar %>
+  	<%= f.file_field :avatar %>
+  <br />
+
+  <%= f.submit "Sign up", class: "btn btn-primary" %>
+
+<% end %>
+
+
+<%= render "devise/shared/links" %>

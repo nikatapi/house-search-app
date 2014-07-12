@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   
   def home
-  	if signed_in?
+  	if user_signed_in?
   		@house = current_user.houses
       @hash = Gmaps4rails.build_markers(@house) do |house, marker|
         marker.lat house.latitude

@@ -1,10 +1,10 @@
-<%= link_to gravatar_for(current_user), current_user %>
-<h1>
-  <%= current_user.name %>
-</h1>
-<span>
-  <%= link_to "view my profile", current_user %>
-</span>
-<span>
-  <%= pluralize(current_user.houses.count, "house") %>
-</span>
+<%= image_tag(user.avatar_url(:thumb), class: "img-circle") if user.avatar? %>
+
+<h4>
+  <%= user.name %>
+</h4>
+<h5>
+  <%= pluralize(user.houses.count, "house") %>
+</h5>
+<%= link_to "View Profile", user, class: "btn btn-large btn-primary" %>
+

@@ -1,0 +1,48 @@
+<div class="row">
+  
+  <div class="col-md-2 text-center">
+    
+    <% conversation.participants.each do |participant| %>
+     
+     <% if participant != current_user %>
+     <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><span class="glyphicon glyphicon-user"></span> Message from:</h3>
+        </div>
+        <div class="panel-body ">
+          <%= render 'shared/user_info' , :user => participant %>
+        </div>
+      </div>
+     <% end %>
+    <% end %>
+  </div>
+    
+  <div class="col-md-6">
+    <ul>
+      <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
+        <% message = receipt.message %>
+        <div class="panel panel-default">
+          <div class="panel-heading text-center">
+            <h3 class="panel-title"><span class="glyphicon glyphicon-envelope"></span> Subject: <%= message.subject %> </h3>
+          </div>
+          <div class="panel-body ">
+          <p><%= message.body %></p>
+          </div>
+        </div>
+      <% end %>
+    </ul>
+    <% conversation.mark_as_read(current_user) %>
+    
+  </div>
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">
+        <h3 class="panel-title"><span class="glyphicon glyphicon-share-alt"></span> Reply </h3>
+      </div>
+      <div class="panel-body ">
+        <%= render 'messages/form', conversation: conversation %>
+      </div>
+    </div>
+  </div>
+  
+</div>

@@ -4,8 +4,12 @@ class SearchesController < ApplicationController
 	end
 
 	def create
-		@search = Search.create!(search_params)
-		redirect_to @search
+		@search = Search.new(search_params)
+		if @search.save
+			redirect_to @search
+		else
+			render 'new'
+		end
 	end
 
 	def show

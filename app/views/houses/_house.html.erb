@@ -1,5 +1,9 @@
-<li class="list-group-item">
+<li class="list-group-item clearfix">
+	<aside class="col-md-6">
+		
+		   <%= render 'shared/house_images_slider', :house => house %>
 	
+	</aside>
 	<span class="country"> Country: <%= house.country %></span>,
 	<span class="city">City:<%= house.city %></span>,
 	<span class="address">Address:<%= house.address %></span>
@@ -8,13 +12,11 @@
 
 	<span class="price">Price:<%= house.price %>€</span>
 	
-
-	
-
-	 <% if current_user?(house.user) %>
+	<% if current_user == house.user %>
     <%= link_to "delete", house, method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: house.description %>
   <% end %>
+  <%= link_to "Show house", house %>
   <br></br>
 </li>

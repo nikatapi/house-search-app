@@ -27,17 +27,48 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'bootstrap-sass', '2.3.2.0'
+#Authentication gems
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
+#gem for showing better urls instead of id
+gem 'friendly_id'
+
+
+gem 'bootstrap-sass'
 gem 'sprockets', '2.11.0'
 gem 'bcrypt-ruby', '~> 3.0.0'
+
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 
+
 gem 'faker', '1.1.2'
+
+# Used for dropdown menu on adding a house
 gem 'country_select'
+gem 'iso_country_codes'
+
+# For geolocation and manipulation of geocoded objects
 gem 'geocoder'
 gem 'carmen-rails'
 gem 'gmaps4rails'
+
+# File upload gem and image manipulation
+gem 'carrierwave'
+gem 'rmagick'
+gem 'mini_magick'
+
+
+gem "font-awesome-rails"
+
+#Private messaging gem
+gem 'mailboxer'
+
+
+
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
