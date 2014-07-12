@@ -19,10 +19,17 @@
         </div>
         <div class="panel-body ">
           <%= render 'shared/user_info' , :user => @house.user %>
-          <%= render 'shared/contact_owner', :user => @house.user %>
         </div>
       </div>
     </section>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><span class="glyphicon glyphicon-envelope"></span> Contact Owner </h3>
+        </div>
+        <div class="panel-body ">
+          <%= render 'shared/contact_owner', :user => @house.user %>
+        </div>
+    </div>
     
   </aside>
 

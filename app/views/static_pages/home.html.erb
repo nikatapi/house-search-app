@@ -3,21 +3,8 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <% if user_signed_in? %>
 	<div class ="row">
-		<!--
-		<aside class="col-md-2">
-			<section>
-			<%= render 'shared/user_info', :user => current_user %>
-			</section>
-			<div class="btn-group-vertical">
-				<%= link_to "Search for a house",  newsearch_path, class: "btn btn-large btn-primary" %>
-				<%= link_to "Add a new house",  newhouse_path, class: "btn btn-large btn-primary" %>
-			</div>
-		</aside>
-		-->
 		
 		
-		
-
 		<%= render 'shared/welcome' %>
 
 		<% if current_user.houses.any? %>

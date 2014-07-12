@@ -1,22 +1,21 @@
 <li class="list-group-item clearfix">
-	<aside class="col-md-6">
-		
+	<aside class="col-md-4">
 		   <%= render 'shared/house_images_slider', :house => house %>
-	
+		
 	</aside>
-	<span class="country"> Country: <%= house.country %></span>,
-	<span class="city">City:<%= house.city %></span>,
-	<span class="address">Address:<%= house.address %></span>
-	<span class="description">Description:<%= house.description %></span>
-	
+	<div class="col-md-8">
+		<ul class="list-group">	
+			<li class="list-group-item"><span class="glyphicon glyphicon-map-marker"></span> <%= house.address %>, <%= house.city %>, <%= IsoCountryCodes.find(house.country).name %></li>
+			<li class="list-group-item"><span class="glyphicon glyphicon-pencil"></span> <%= house.description %></li>
+		
 
-	<span class="price">Price:<%= house.price %>€</span>
-	
-	<% if current_user == house.user %>
-    <%= link_to "delete", house, method: :delete,
-                                     data: { confirm: "You sure?" },
-                                     title: house.description %>
-  <% end %>
-  <%= link_to "Show house", house %>
-  <br></br>
+			<li class="list-group-item"><span class="glyphicon glyphicon-credit-card"></span> <%= house.price %>€</li>
+		</ul>
+		<% if current_user == house.user %>
+		<%= link_to "delete", house, method: :delete, data: { confirm: "You sure?" },title: house.description %>
+		<% end %>
+		<%= link_to "Show House", house, :class => "btn btn-primary" %>
+	</div>
+		
+	  <br></br>
 </li>

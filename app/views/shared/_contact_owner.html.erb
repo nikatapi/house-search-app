@@ -1,6 +1,6 @@
-<h3>Contact Owner</h3>
+
  <%= form_tag({controller: "messages", action: "create"}, method: :post) do %>
-  <%= label_tag :subject %>
+  <%= label_tag :subject, "Message subject" %>
   <%= text_field_tag :subject %>
   <%= label :body, "Message text" %>
   <%= text_area_tag :body %>
