@@ -1,29 +1,33 @@
 <% provide(:title, 'Add a new house') %>
-<h1>Add a new house </h1>
+<h1>Add Your House </h1>
 
 <div class="row">
+
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@house, :html => { :multipart => true }) do |f| %>
     
     <%= render 'shared/error_messages', object: f.object %>
-      <%= f.label :description %>
+      <%= f.label "Description*" %>
+      <span class="help-block">Give a detailed description of your house</span>
       <%= f.text_area :description %>
+      
 
-      <%= f.label :country %>
+      <%= f.label "Country*" %>
       <%= f.country_select :country , prompt: 'Please select a country'%>
 
-      <%= f.label :city %>
+      <%= f.label "City*" %>
       <%= f.text_field :city %>
 
-      <%= f.label :address %>
+      <%= f.label "Address*" %>
       <%= f.text_field :address %>
 
 
-      <%= f.label :price %>
+      <%= f.label "Price*" %>
+      <span class="help-block">Price per month</span>
       <%= f.number_field :price, in: 10...1500 %>
 
       <h3>Add some images too!</h3>
-      <%= f.label :pictures, :class => 'control-label' %>
+      <span class="help-block">Hold ctrl to select multiple images</span>
      
       <!-- Use HTML5 multiple attribute to enable multiple selection
            and pass back to controller all files as an array, ready 

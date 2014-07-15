@@ -3,31 +3,24 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <% if user_signed_in? %>
 	<div class ="row">
-		
-		
 		<%= render 'shared/welcome' %>
 
 		<% if current_user.houses.any? %>
 			<h1>Your registered houses</h1>
 			<div class="row">
-				<div class="col-md-2">
-					<div style='width: 300px;'>
-		        	<div id="map" style='width: 300px; height: 250px;'></div>
+				<div class="col-md-3">
+					<div style='width: 100%;'>
+		        	<div id="map" style='height: 250px;'></div>
 		       		</div>
 					<%= render 'shared/house_map' %>
-					
 				</div>
-				<div class="col-md-10">
+				<div class="col-md-8">
 					<%= render 'shared/feed' %>
 				</div>
 			</div>
-		
 		<% end %>
-			
-			
-		
-		
 	</div>
+
 <% else %>
 
 	<!-- Welcome and signup prompt -->

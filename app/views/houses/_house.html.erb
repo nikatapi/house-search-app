@@ -5,6 +5,7 @@
 	</aside>
 	<div class="col-md-8">
 		<ul class="list-group">	
+			<li class="list-group-item"><span class="glyphicon glyphicon-user"></span> <%= link_to house.user.name, house.user %>  </li>
 			<li class="list-group-item"><span class="glyphicon glyphicon-map-marker"></span> <%= house.address %>, <%= house.city %>, <%= IsoCountryCodes.find(house.country).name %></li>
 			<li class="list-group-item"><span class="glyphicon glyphicon-pencil"></span> <%= house.description %></li>
 		
@@ -12,9 +13,9 @@
 			<li class="list-group-item"><span class="glyphicon glyphicon-credit-card"></span> <%= house.price %>€</li>
 		</ul>
 		<% if current_user == house.user %>
-		<%= link_to "delete", house, method: :delete, data: { confirm: "You sure?" },title: house.description %>
+		<%= link_to "Delete", house, method: :delete, data: { confirm: "You sure?" }, title: house.description, :class => "btn btn-primary" %>
 		<% end %>
-		<%= link_to "Show House", house, :class => "btn btn-primary" %>
+		<%= link_to "View House", house, :class => "btn btn-primary" %>
 	</div>
 		
 	  <br></br>

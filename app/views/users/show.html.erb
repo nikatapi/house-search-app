@@ -5,19 +5,33 @@
 
 
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-2">
     <section>
-        <%= render 'shared/user_info' , :user => @user %>
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          <h3 class="panel-title"><span class="glyphicon glyphicon-user"></span> User Details </h3>
+        </div>
+        <div class="panel-body text-center">
+         <%= render 'shared/user_info' , :user => @user %>
+        </div>
+      </div>
+        
     </section>
-
-    <%= link_to "Search for a house!",  newsearch_path, class: "btn btn-large btn-primary" %>
-    <%= link_to "Add A New House!",  newhouse_path, class: "btn btn-large btn-primary" %>
+ 
+    <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          <h3 class="panel-title"><span class="glyphicon glyphicon-envelope"></span> Contact Owner </h3>
+        </div>
+        <div class="panel-body ">
+          <%= render 'shared/contact_owner', :user => @user %>
+        </div>
+    </div>
   </aside>
 
 
   <div class="col-md-8">
   	<%if @user.houses.any? %>
-    	<h3>Registered houses (<%= @user.houses.count %>) </h3>
+    	<h1>Registered houses (<%= @user.houses.count %>) </h1>
       
       <%= render 'shared/house_map' %>
 
