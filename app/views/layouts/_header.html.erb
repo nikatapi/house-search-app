@@ -1,9 +1,11 @@
 <header class="navbar navbar-inverse navbar-static-top" role="navigation">
   
     <div class="container-fluid">
+    
       
       <%= link_to "SSQ APP", root_path, id: "logo" %>
       <div class="navbar-header pull-right">
+      
         <ul class="nav navbar-nav">
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Help", help_path %></li>
@@ -32,7 +34,7 @@
             </li>
           <% else %>
            
-            <li><%= link_to "Sign in", new_user_session_path %></li>
+            <li><%= link_to "Sign in", "#login", "data-toggle" => "modal", :class => 'btn btn-small' %></li>
             <li><%= link_to user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-facebook" do%>
               <i class="fa fa-facebook"></i> | Sign in with Facebook
             <% end %>
