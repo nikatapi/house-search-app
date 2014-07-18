@@ -1,11 +1,19 @@
 <%= content_tag_for(:li, conversation, :class => "list-group-item") do |conversation| %>
+  <% conversation.participants.each do |participant| %>
+  	<% if participant != current_user %>
+  	  <%= image_tag(participant.avatar_url(:navbar), class: "img-circle") if participant.avatar? %> <%= participant.name %>
+  	<% end %>
+  <% end %>
+  
   <p>
     <%= link_to conversation.subject, conversation_path(conversation) %>
     |
     <% if conversation.is_completely_trashed?(current_user) %>
-      <%= link_to 'Untrash', untrash_conversation_path(conversation), method: :post, class: "btn btn-primary btn-large"  %>
+      <%= link_to 'Untrash', untrash_conversation_path(conversation), method: :post, class: "btn btn-primary"  %>
     <% else %>
-      <%= link_to 'Move to trash', trash_conversation_path(conversation), method: :post, class: "btn btn-primary btn-large" %>
+      <%= link_to trash_conversation_path(conversation), method: :post, class: "btn btn-danger btn-sm" do %>
+      	<span class="glyphicon glyphicon-trash"></span>
+      <% end %>
     <% end %>
   </p>
 <% end %>

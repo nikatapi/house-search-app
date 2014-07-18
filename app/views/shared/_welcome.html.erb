@@ -1,6 +1,4 @@
-<div class="jumbotron text-center">
-	<h1>Some intro with image goes here</h1>
-</div>
+
 <div class ="row">
 		<h1>How does it work</h1>
 		<div class="col-sm-6 col-md-4 text-center">
@@ -20,7 +18,10 @@
 		      <div class="caption">
 		        <h3>Add your house</h3>
 		        <p>You can add your property for rent</p>
+		        
+		        <% if user_signed_in? %>
 		       	<%= link_to "Add your house",  newhouse_path, class: "btn btn-large btn-primary" %>
+		       	<% end %>
 		      </div>
 		    </div>
   		</div>

@@ -3,6 +3,9 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <% if user_signed_in? %>
 	<div class ="row">
+		<div class="jumbotron jumbotron-intro text-center">
+			<h1>Find a house, the easy way.</h1>
+		</div>
 		<%= render 'shared/welcome' %>
 
 		<% if current_user.houses.any? %>
@@ -25,14 +28,10 @@
 
 	<!-- Welcome and signup prompt -->
 	<div class ="row">
-		<div class="jumbotron text-center">
-		  <h1>House rental app</h1>
+		<div class="jumbotron jumbotron-intro text-center">
+		  <h1>House rental made easy.</h1>
 
-		  <h2>
-		    Welcome to the spatial skyline query house search app!
-		  </h2>
-
-		  <%= link_to "Sign up now!",  new_user_registration_path, class: "btn btn-primary btn-large" %>
+		  <%= link_to "Sign up now!", "#sign_up", "data-toggle" => "modal", class: "btn btn-primary btn-large" %>
 		  <%= link_to user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-facebook btn-large" do %>
 		 	<i class="fa fa-facebook"></i> | Sign in with Facebook
 		  <% end %>
@@ -41,45 +40,7 @@
 
 
 	<!--Application Features -->
-	<div class ="row">
-		<h1>How does it work</h1>
-		<div class="col-sm-6 col-md-4 text-center">
-		    <div class="thumbnail">
-		      <span class="glyphicon glyphicon-search"></span> 
-		      <div class="caption">
-		        <h3>Find Houses</h3>
-		        <p>Search for a house that fits your needs</p>
-		        
-		      </div>
-		    </div>
-  		</div>
-		
-		<div class="col-sm-6 col-md-4 text-center">
-		    <div class="thumbnail">
-		      <span class="glyphicon glyphicon-home"></span> 
-		      <div class="caption">
-		        <h3>Add your house</h3>
-		        <p>You can add your property for rent</p>
-		        
-		      </div>
-		    </div>
-  		</div>
-
-  		<div class="col-sm-6 col-md-4 text-center">
-		    <div class="thumbnail">
-		      <span class="glyphicon glyphicon-user"></span> 
-		      <div class="caption">
-		        <h3>Verified Users</h3>
-		        <p>Users from all over the world are renting their propery</p>
-		        
-		      </div>
-		    </div>
-  		</div>
-	</div>
-
-
-
-
+	<%= render 'shared/welcome' %>
 
 <% end %>
 

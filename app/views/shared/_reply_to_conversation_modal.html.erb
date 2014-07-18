@@ -1,0 +1,25 @@
+<div class="modal fade" id="reply" role="dialog">
+ <div class="modal-dialog">
+ 	
+	 <div class="modal-content">
+	 	<div class="modal-header">
+			<button class="close" data-dismiss="modal">x</button>
+			<h2>Reply to <%= user.name %> </h2>
+		</div>
+
+		<div class="modal-body">
+		 <%= form_tag({controller: "conversations", action: "reply"}, method: :post) do %>
+		  
+		  <%= label :body, "Message text" %>
+		  <%= text_area_tag :body %>
+		  <%= hidden_field_tag(:user, "#{user.id}") %>
+
+		  <div class="btn-group-vertical">
+		  	<%= submit_tag 'Send message', class: "btn btn-primary" %>
+		  </div>
+		  
+		 <% end %>
+		</div>
+	 </div>
+ </div>
+</div>
