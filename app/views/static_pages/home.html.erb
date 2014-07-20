@@ -3,9 +3,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <% if user_signed_in? %>
 	<div class ="row">
-		<div class="jumbotron jumbotron-intro text-center">
-			<h1>Find a house, the easy way.</h1>
-		</div>
+		<%= render 'shared/main_jumbotron'%>
 		<%= render 'shared/welcome' %>
 
 		<% if current_user.houses.any? %>
@@ -28,16 +26,8 @@
 
 	<!-- Welcome and signup prompt -->
 	<div class ="row">
-		<div class="jumbotron jumbotron-intro text-center">
-		  <h1>House rental made easy.</h1>
-
-		  <%= link_to "Sign up now!", "#sign_up", "data-toggle" => "modal", class: "btn btn-primary btn-large" %>
-		  <%= link_to user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-facebook btn-large" do %>
-		 	<i class="fa fa-facebook"></i> | Sign in with Facebook
-		  <% end %>
-		</div>
+		<%= render 'shared/main_jumbotron'%>		  
 	</div>
-
 
 	<!--Application Features -->
 	<%= render 'shared/welcome' %>

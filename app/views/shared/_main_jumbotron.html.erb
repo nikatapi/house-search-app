@@ -1,0 +1,20 @@
+<div class="jumbotron jumbotron-intro text-center">
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+	<br></br>
+		
+		 
+	<h1 class="stroke">House rental made easy.</h1>
+	<% unless user_signed_in? %>
+
+	<%= link_to "Sign up now!", "#sign_up", "data-toggle" => "modal", class: "btn btn-primary btn-large" %>
+	<%= link_to user_omniauth_authorize_path(:facebook), class: "btn btn-social btn-facebook btn-large" do %>
+	 	<i class="fa fa-facebook"></i> | Sign in with Facebook
+	<% end %>
+
+	<% end %>
+		 
+</div>

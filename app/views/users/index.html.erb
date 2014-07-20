@@ -1,10 +1,12 @@
 <%provide(:title, 'All users')%>
+<div class="row">
 <h1>All Users</h1>
 
 <%= will_paginate %>
 
-<ul class="users">
+<ul class="list-group">
 	<%= render @users %>
 </ul>
 
 <%= will_paginate %>
+<div class="row">

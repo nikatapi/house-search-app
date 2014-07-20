@@ -43,6 +43,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 
+#Administration backend
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'faker', '1.1.2'
 
@@ -65,6 +67,8 @@ gem "font-awesome-rails"
 
 #Private messaging gem
 gem 'mailboxer'
+
+gem 'rails_12factor', group: :production
 
 
 

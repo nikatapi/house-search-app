@@ -1,7 +1,7 @@
-<li>
-	<%= image_tag(user.avatar_url(:thumb), class: "gravatar") if user.avatar? %>
-	<% link_to user.name, user %>
-	<% if current_user.admin? && !current_user?(user) %>
-		| <% link_to "delete", user, method: :delete, data: {confirm: "You sure?"} %>
+<li class="list-group-item">
+	<%= image_tag(user.avatar_url(:thumb), class: "img-circle") if user.avatar? %>
+	<%= link_to user.name, user %>
+	<% if current_user.admin? && (current_user != user) %>
+		| <%= link_to "delete", user,class: "btn btn-primary", method: :delete, data: {confirm: "You sure?"} %>
 	<% end %>
 </li>

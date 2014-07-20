@@ -6,9 +6,9 @@ $grayMediumLight: #eaeaea;
 
 
 @mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
 }
 
 /* universal */
@@ -227,7 +227,7 @@ aside{
 }
 
 .jumbotron-intro{
-  height:400px;
+  height:450px;
   background: url("http://pixeswall.com/wp-content/uploads/2014/06/landscape-german-landscapes-nature-lake-cliff-reflection-wooden-house-widescreen-wallpapers-german-landscapes-photo-contest-winners-german-expressionist-landscapes-german-landscapes-by-mathias-rehberg.jpg") center center no-repeat;
   background-size: cover;
   color: #FFFFFF;
@@ -235,4 +235,18 @@ aside{
 
 .navbar{
   margin-bottom: 0px;
+}
+
+.features{
+
+}
+
+.thumbnail {
+    border: 0 none;
+    box-shadow: none;
+}
+
+.stroke {
+ color: #c00; /* text color */
+ -webkit-text-stroke: 1px #000; /* stroke color and weight */
 }
