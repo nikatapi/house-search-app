@@ -32,9 +32,6 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
-#gem for showing better urls instead of id
-gem 'friendly_id'
-
 
 gem 'bootstrap-sass'
 gem 'sprockets', '2.11.0'
@@ -67,6 +64,9 @@ gem "font-awesome-rails"
 
 #Private messaging gem
 gem 'mailboxer'
+
+#Gem for comments
+gem 'acts_as_commentable'
 
 gem 'rails_12factor', group: :production
 
