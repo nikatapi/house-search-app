@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   
   has_many :houses,  dependent: :destroy
   #has_many :searches, dependent: :destroy
-  has_many :reservations, dependent: :destroy
+  
   acts_as_messageable
 
   #extend FriendlyId

@@ -1,8 +1,7 @@
 class House < ActiveRecord::Base
 	belongs_to :user
 	has_many   :pictures, dependent: :destroy
-	has_many   :reservations, dependent: :destroy
-
+	
 	validates :user_id, presence: true
 	validates :description, presence: true, length: {maximum: 200}
 	validates :country, presence: true
