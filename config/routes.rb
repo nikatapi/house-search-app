@@ -11,6 +11,7 @@ SampleApp::Application.routes.draw do
   resources :houses 
   resources :house_images
   resources :searches
+  resources :comments, only: [:create, :destroy]
  
 
   resources :messages do
@@ -38,6 +39,7 @@ SampleApp::Application.routes.draw do
   match '/newhouse', to: 'houses#new',          via: 'get'
   match '/newsearch', to: 'searches#new',       via: 'get'
   match '/newconversation', to: 'conversations#new',  via: 'get'
+  match '/newcomment', to: 'comments#create', via: 'post'
 
   devise_scope :user do 
     match '/sessions/user', to: 'devise/sessions#create', via: :post

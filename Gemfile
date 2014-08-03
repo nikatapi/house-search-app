@@ -66,7 +66,8 @@ gem "font-awesome-rails"
 gem 'mailboxer'
 
 #Gem for comments
-gem 'acts_as_commentable'
+
+gem 'acts_as_commentable_with_threading'
 
 gem 'rails_12factor', group: :production
 

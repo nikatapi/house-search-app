@@ -18,6 +18,9 @@ class HousesController < ApplicationController
       marker.infowindow house.price
     end
 
+    @comments = @house.comment_threads.order('created_at desc')
+    @new_comment = Comment.build_from(@house, current_user.id, "")
+
   end
 
 	def create

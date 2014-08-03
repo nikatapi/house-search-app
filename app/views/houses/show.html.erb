@@ -37,8 +37,21 @@
 
   <div class="col-md-4">
     <%= render 'shared/house_details', :house => @house %>
-  </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+       <h3 class="panel-title"><span class="glyphicon glyphicon-user"></span> Reviews</h3>
+      </div>
+      <div class="panel-body ">
+        <%= render @comments %>
+        <% if user_signed_in? %>
+        <%= render "/comments/form" ,  :comment => @new_comment %>
+        <% end %>
+      </div>
+    </div>
 </div>
+</div>
+
+
 
 
 
