@@ -1,4 +1,4 @@
-jQuery ->
+   jQuery ->
       # Create a comment
       $(".comment-form")
         .on "ajax:beforeSend", (evt, xhr, settings) ->
@@ -12,7 +12,7 @@ jQuery ->
             .val('');
           $(xhr.responseText).hide().insertAfter($(this)).show('slow')
 
-      # Delete a comment
+          # Delete a comment
       $(document)
         .on "ajax:beforeSend", ".comment", ->
           $(this).fadeTo('fast', 0.5)
