@@ -8,7 +8,7 @@
      <% if participant != current_user %>
      <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title"><span class="glyphicon glyphicon-user"></span> Message from:</h3>
+          <h3 class="panel-title"><span class="glyphicon glyphicon-user"></span> Conversation with:</h3>
         </div>
         <div class="panel-body ">
           <%= render "shared/reply_to_conversation_modal" , :user => participant, conversation: conversation %>
@@ -20,33 +20,18 @@
     <% end %>
   </div>
     
-  <div class="col-md-6">
-    <ul>
-      <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
+  <div class="col-md-6 col-md-offset-1">
+    <ul class="list-group">
+      <h1><span class="glyphicon glyphicon-envelope"></span> Subject: <%= conversation.subject %></h1>
+      <%= content_tag_for(:li, conversation.receipts_for(current_user), class: "list-group-item text-center") do |receipt| %>
         <% message = receipt.message %>
-        <div class="panel panel-default">
-          <div class="panel-heading text-center">
-            <h3 class="panel-title"><span class="glyphicon glyphicon-envelope"></span> Subject: <%= message.subject %> </h3>
-          </div>
-          <div class="panel-body ">
-          <p><%= message.body %></p>
-          <%= link_to "Reply", "#new_message", "data-toggle" => "modal", class: "btn btn-primary btn-large" %>
-          </div>
-        </div>
+        <aside><%= image_tag(message.sender.avatar_url(:navbar), class: "img-circle") if message.sender.avatar? %> <%= message.sender.name %> (<%= message.updated_at %>)</aside>
+        <p><%= message.body %></p>
       <% end %>
+      <li class="list-group-item"><%= render 'messages/form', :locals => {conversation: conversation, subject: conversation.subject} %></li>
     </ul>
     <% conversation.mark_as_read(current_user) %>
     
-  </div>
-  <div class="col-md-3">
-    <div class="panel panel-default">
-      <div class="panel-heading text-center">
-        <h3 class="panel-title"><span class="glyphicon glyphicon-share-alt"></span> Reply </h3>
-      </div>
-      <div class="panel-body ">
-        <%= render 'messages/form', conversation: conversation %>
-      </div>
-    </div>
   </div>
   
 </div>

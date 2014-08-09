@@ -9,7 +9,8 @@
 <div class="btn-group-vertical">
 <%= link_to "View Profile", user, class: "btn btn-large btn-primary" %>
 
+<% unless current_user == user %>
 <%= link_to "Message Owner", "#new_message", "data-toggle" => "modal", class: "btn btn-primary btn-large" %>
-
+<% end %>
 </div>
 

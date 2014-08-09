@@ -5,10 +5,11 @@
 	</aside>
 	<div class="col-md-8">
 		<ul class="list-group">	
-			<li class="list-group-item"><span class="glyphicon glyphicon-user"></span> <%= link_to house.user.name, house.user %>  </li>
-			<li class="list-group-item"><span class="glyphicon glyphicon-map-marker"></span> <%= house.address %>, <%= house.city %>, <%= IsoCountryCodes.find(house.country).name %></li>
 			<li class="list-group-item"><span class="glyphicon glyphicon-pencil"></span> <%= house.description %></li>
 		
+			<li class="list-group-item"><span class="glyphicon glyphicon-user"></span> <%= link_to house.user.name, house.user %>  </li>
+			<li class="list-group-item"><span class="glyphicon glyphicon-map-marker"></span> <%= house.address %>, <%= house.city %>, <%= IsoCountryCodes.find(house.country).name %></li>
+			
 
 			<li class="list-group-item"><span class="glyphicon glyphicon-credit-card"></span> <%= house.price %>€</li>
 		</ul>

@@ -1,5 +1,5 @@
 <div class ="row">
-<h1>Search Results</h1>
+<h1>Search Results (<%= @search.found_houses.count %> found )</h1>
 <%if @search.found_houses.any? %>
 	<div class="col-md-3">
 		<%= render 'shared/map_panel' %>
