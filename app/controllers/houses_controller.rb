@@ -1,7 +1,8 @@
+require 'will_paginate/array' 
 class HousesController < ApplicationController
 	before_filter :authenticate_user!
   #before_action :correct_user, only: :destroy
-
+  
 	def new
   	@house = House.new
   end
@@ -18,7 +19,7 @@ class HousesController < ApplicationController
       marker.infowindow house.price
     end
 
-    @comments = @house.comment_threads.order('created_at desc')
+    @comments = @house.comment_threads.order('created_at desc').paginate(page: params[:page])
    
     @new_comment = Comment.build_from(@house, current_user.id, "")
 

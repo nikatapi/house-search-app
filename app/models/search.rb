@@ -1,6 +1,6 @@
 class Search < ActiveRecord::Base
 	validates :country, presence: true
-
+	self.per_page = 5
 
 	geocoded_by :full_address
 	after_validation :geocode
@@ -23,9 +23,7 @@ private
 		#this is not so accurate using SQLite DB
 		found_houses = found_houses.near([latitude, longitude], max_radius, :units => :km) if max_radius.present?
 		
-		
 		#here we'll calculate the ssq and return the results
 		found_houses
 	end
-
 end

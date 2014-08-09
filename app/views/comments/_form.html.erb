@@ -5,8 +5,9 @@
 
 	  	<%= f.hidden_field :commentable_id, :value => comment.commentable_id %>
 	  	<%= f.hidden_field :commentable_type, :value => comment.commentable_type %>
-
+	  	<div class="submit-btn">
 	  	<%= f.button :submit, class: 'btn btn-primary', data: { disable_with: "Submitting…" } %>
+	  	</div>
 
 	<% end %>
 </div>

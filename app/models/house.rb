@@ -13,6 +13,7 @@ class House < ActiveRecord::Base
 	after_validation :geocode
 
 	acts_as_commentable
+	self.per_page = 5
 
 	def full_address
 		"#{address}, #{city}, #{country}"

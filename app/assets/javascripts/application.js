@@ -12,11 +12,10 @@
 //
 //
 //
-//= require underscore
-//= require bootstrap
 //= require jquery
-//= require jquery_ujs
 //= require bootstrap-sprockets
+//= require jquery_ujs
+//= require underscore
 //= require turbolinks
 //= require gmaps/google
 //= require_tree .

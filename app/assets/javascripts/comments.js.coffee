@@ -6,10 +6,7 @@
             .addClass('uneditable-input')
             .attr('disabled', 'disabled');
         .on "ajax:success", (evt, data, status, xhr) ->
-          $(this).find('textarea')
-            .removeClass('uneditable-input')
-            .removeAttr('disabled', 'disabled')
-            .val('');
+          $(this).hide('fast')
           $(xhr.responseText).hide().insertAfter($(this)).show('slow')
 
           # Delete a comment
