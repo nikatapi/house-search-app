@@ -36,6 +36,8 @@
 				  <div class="panel-body">
 				    <ul class="list-group">
 				  		<%= render collection: mailbox.trash, partial: 'conversation' %>
+				  		<%= link_to "Empty trash", {:controller => "conversations", :action => "empty_trash"}, :title=> "Move to Trash", :method=>'post', :class => 'btn btn-danger' %>
+
 					</ul>
 				  </div>
 				</div>

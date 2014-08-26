@@ -10,6 +10,7 @@
     |
     <% if conversation.is_completely_trashed?(current_user) %>
       <%= link_to 'Untrash', untrash_conversation_path(conversation), method: :post, class: "btn btn-primary"  %>
+    
     <% else %>
       <%= link_to trash_conversation_path(conversation), method: :post, class: "btn btn-danger btn-sm" do %>
       	<span class="glyphicon glyphicon-trash"></span>
