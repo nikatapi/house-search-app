@@ -1,14 +1,15 @@
-== README
+README
+======
 
 This is a Ruby On Rails app for searching and registering houses for rent.
 It uses the following components for its functionality:
 
-*Bootstrap
-*Devise & OmniAuth for authentication
-*Mailboxer for private messaging
-*ActiveAdmin backend
-*Geocoder & Gmaps4rails 
-*Carrierwave for file upload
+* Bootstrap
+* Devise & OmniAuth for authentication
+* Mailboxer for private messaging
+* ActiveAdmin backend
+* Geocoder & Gmaps4rails 
+* Carrierwave for file upload
 
 To get this app running on your machine:
 
