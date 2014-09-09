@@ -6,10 +6,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @houses = @user.houses.paginate(page: params[:page])
-    @hash = Gmaps4rails.build_markers(@houses) do |house, marker|
-      marker.lat house.latitude
-      marker.lng house.longitude
-      marker.infowindow house.price
+    @hash = map_markers(@houses)
     end
   end
 

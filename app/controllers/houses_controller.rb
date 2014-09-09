@@ -13,10 +13,7 @@ class HousesController < ApplicationController
   def show
     @house = House.find(params[:id])
    
-    @hash = Gmaps4rails.build_markers(@house) do |house, marker|
-      marker.lat house.latitude
-      marker.lng house.longitude
-      marker.infowindow house.price
+    @hash = map_markers(@house)
     end
 
     @comments = @house.comment_threads.order('created_at desc').paginate(page: params[:page])

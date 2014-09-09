@@ -1,13 +1,11 @@
 require 'will_paginate/array' 
+
 class SearchesController < ApplicationController
+
 	def new
 		@search = Search.new
 		@houses = House.where(country: "GR")
-		@hash = Gmaps4rails.build_markers(@houses) do |house, marker|
-      		marker.lat house.latitude
-      		marker.lng house.longitude
-      		marker.infowindow house.price
-		end
+		@hash = map_markers(@houses)
 	end
 
 	def create
@@ -23,11 +21,7 @@ class SearchesController < ApplicationController
 		@search = Search.find(params[:id])
 		
 		@found_houses = @search.found_houses.paginate(page: params[:page])
-		@hash = Gmaps4rails.build_markers(@found_houses) do |house, marker|
-      		marker.lat house.latitude
-      		marker.lng house.longitude
-      		marker.infowindow house.price
-		end
+		@hash = map_markers(@found_houses)
 	end
 
 

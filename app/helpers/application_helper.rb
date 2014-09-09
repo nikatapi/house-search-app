@@ -8,23 +8,22 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+
   def resource_name
-	:user
+	 :user
   end
 
   def resource
-	@resource ||= User.new
+	 @resource ||= User.new
   end
 
   def resource_class
-  devise_mapping.to
-end
+    devise_mapping.to
+  end
 
-def devise_mapping
-
-@devise_mapping ||= Devise.mappings[:user]
-
-end
+  def devise_mapping
+    devise_mapping ||= Devise.mappings[:user]
+  end
 
  # Always use the Twitter Bootstrap pagination renderer
   def will_paginate(collection_or_options = nil, options = {})
@@ -36,4 +35,6 @@ end
     end
     super *[collection_or_options, options].compact
   end
+
+  
 end
