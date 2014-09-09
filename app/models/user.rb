@@ -1,24 +1,18 @@
 class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
-
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
   
   has_many :houses,  dependent: :destroy
-  #has_many :searches, dependent: :destroy
   
   acts_as_messageable
 
-  #extend FriendlyId
-  #friendly_id :email
   def mailboxer_email(object)
     return email
   end
  
   def feed
-    #A preliminary feed for the profile page
+    #A feed with the user's houses
     House.where("user_id = ?", id)
   end
 

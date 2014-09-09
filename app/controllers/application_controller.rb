@@ -15,10 +15,10 @@ class ApplicationController < ActionController::Base
   private
 
   def map_markers(object)
-	    Gmaps4rails.build_markers(object) do |house, marker|
-	          marker.lat house.latitude
-	          marker.lng house.longitude
-	          marker.infowindow house.price
-	    end
+	  Gmaps4rails.build_markers(object) do |house, marker|
+	    marker.lat house.latitude
+	    marker.lng house.longitude
+	    marker.infowindow house.price
+	  end
   end
 end

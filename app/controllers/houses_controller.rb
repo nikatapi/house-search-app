@@ -7,26 +7,17 @@ class HousesController < ApplicationController
   	@house = House.new
   end
 
-  def index
-  end
-
   def show
     @house = House.find(params[:id])
-   
     @hash = map_markers(@house)
-    end
-
     @comments = @house.comment_threads.order('created_at desc').paginate(page: params[:page])
-   
     @new_comment = Comment.build_from(@house, current_user.id, "")
-
   end
 
 	def create
     @house = current_user.houses.build(house_params)
     
     if @house.save
-      
       if params[:images]
         #===== The magic is here ;)
         params[:images].each { |image|

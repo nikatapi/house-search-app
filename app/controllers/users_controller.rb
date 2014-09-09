@@ -1,15 +1,13 @@
 class UsersController < ApplicationController
-   before_action :correct_user,   only: [:edit, :update]
-   before_filter :authenticate_user! ,only: [:edit, :update]
-   before_action :admin_user,     only: :destroy
+  before_action :correct_user,   only: [:edit, :update]
+  before_filter :authenticate_user! ,only: [:edit, :update]
+  before_action :admin_user,     only: :destroy
 
   def show
     @user = User.find(params[:id])
     @houses = @user.houses.paginate(page: params[:page])
     @hash = map_markers(@houses)
-    end
   end
-
 
   def edit
   	@user = User.find(params[:id])
@@ -31,7 +29,6 @@ class UsersController < ApplicationController
   	@users = User.paginate(page: params[:page])
   end
 
-
   private 
 
   	def user_params
@@ -39,9 +36,7 @@ class UsersController < ApplicationController
   	end
 
   	#Before filters
-
-
-  	def correct_user
+    def correct_user
   		@user = User.find(params[:id])
   		redirect_to(root_url) unless current_user?(@user)
   	end

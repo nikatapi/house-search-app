@@ -39,5 +39,6 @@
 	</div>
 	
 	<% if current_user == house.user %>
+	
     <%= link_to "Delete this house", house, method: :delete, data: { confirm: "You are going to delete this house. Proceed?" }, :class => "btn btn-primary btn-large"%>
     <% end %>
