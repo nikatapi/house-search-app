@@ -1,3 +1,0 @@
-class PicturesController < ApplicationController
-
-end
